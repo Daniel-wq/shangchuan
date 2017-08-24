@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./up/js/jquery-1.7.2.min.js"></script>
+    <link rel="stylesheet" href="./bt/css/bootstrap.css">
+    <title>上传照片</title>
+    <script>
+        $(function(){
+            //点击添加按钮，增加一个添加文件按钮
+            $('.add').click(function(){
+                //alert(1);
+                var input = $(this).prev('input.file').clone();
+                $('form').prepend(input);
+            })
+            //点击查看按钮，跳转到图片显示页面
+            $('.show').click(function () {
+                location.href = './up/show.php'
+            })
+        })
+    </script>
+    <style>
+        body{
+            background: darkcyan;
+        }
+        h1{
+            text-align: center;
+            margin-top: 100px;
+           color: #00CC66;
+        }
+        .box{
+            width: 317px;
+            /*border: 1px solid darkgreen;*/
+            /*box-sizing: border-box;*/
+            padding: 5px;
+            box-sizing: border-box;
+            margin: 0px auto;
+            margin-top: 30px;
+        }
+        h4{
+            color: darkgray;
+        }
+        .file{
+            width: 300px;
+            height: 50px;
+            margin-top: 10px;
+        }
+        button{
+            width: 100px;
+            height: 40px;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+        .up{
+            float: left;
+            margin-top: 15px;
+        }
+        .show{
+            float: left;
+            margin-left: 10px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>上传图片</h1>
+    <div class="box">
+        <form action="" method="post" enctype="multipart/form-data">
+            <h4>文件格式需满足：jpg,jpeg,png,gif,bmp</h4>
+            <input type="file" name="upload[]" class="file">
+            <button type="button" class="add btn btn-primary">添加一项</button>
+            <br>
+            <button type="submit" class="up btn-success">上传图片</button>
+            <button type="button" class="show btn-info">查看图片</button>
+        </form>
+    </div>
+</body>
+</html>
